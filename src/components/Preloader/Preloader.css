@@ -1,0 +1,44 @@
+.preloader {
+  --backdrop: 16 24 33;
+
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgb(var(--backdrop));
+}
+
+@media (pointer: coarse) {
+  .preloader {
+    --backdrop: 16 24 33;
+  }
+}
+
+.preloader-counter {
+  --digit-h: 1.1em;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: flex-start;
+  height: var(--digit-h);
+  overflow: hidden;
+}
+
+.digit-col {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(10%);
+  will-change: transform;
+}
+
+.digit-col span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: var(--digit-h);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}

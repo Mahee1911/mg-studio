@@ -1,0 +1,130 @@
+.project-hero {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.project-hero .project-image {
+  position: absolute;
+  inset: 0;
+}
+
+.project-title {
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.project-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-hero ~ * > .container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: start;
+  gap: 2rem;
+  padding-block: 0;
+}
+
+.project-hero ~ * {
+  padding-block: 14rem;
+}
+
+.project-hero ~ .project-shots {
+  padding-block: 0;
+}
+
+.project-shots > .container {
+  padding-inline: calc(var(--edge) - 1rem);
+}
+
+.project-hero ~ .project-next {
+  position: relative;
+  height: 101svh;
+  padding-block: 0;
+}
+
+.project-next footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 0;
+}
+
+.project-hero ~ .project-next > .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-frame {
+  grid-column: 1 / -1;
+  aspect-ratio: 3 / 2;
+  border-radius: 0.5rem;
+}
+
+.project-label {
+  color: var(--base-200);
+}
+
+.project-list ul {
+  list-style: none;
+  margin-top: 1.35rem;
+}
+
+.project-copy {
+  grid-column: 4 / -1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-wrap: pretty;
+}
+
+.project-hero ~ .project-stats > .container {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.project-stat .text-large {
+  margin-bottom: 0.5rem;
+}
+
+.project-notes .project-label {
+  grid-column: 1 / 4;
+}
+
+@media (max-width: 1000px) {
+  .project-hero ~ * > .container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project-hero ~ * {
+    padding-block: 8rem;
+  }
+
+  .project-hero ~ .project-stats > .container {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 4rem;
+  }
+
+  .project-list,
+  .project-copy,
+  .project-notes .project-label {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}

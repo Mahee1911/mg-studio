@@ -1,0 +1,129 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+nav .container {
+  padding: calc(var(--edge) - 1rem);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+nav .container > a,
+.menu-toggle {
+  padding: 1rem;
+}
+
+nav .container > a:last-child {
+  justify-self: end;
+}
+
+.menu-toggle {
+  position: relative;
+  z-index: 2;
+  justify-self: start;
+  border: none;
+  background: none;
+  color: var(--base-100);
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.35s ease;
+}
+
+nav.is-menu-open .menu-toggle {
+  color: var(--base-300);
+}
+
+.nav-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.nav-line {
+  display: block;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+.menu-toggle-mask {
+  display: grid;
+  overflow: hidden;
+}
+
+.menu-toggle-word {
+  grid-area: 1 / 1;
+  text-align: left;
+  will-change: transform;
+}
+
+.menu-toggle-word + .menu-toggle-word {
+  transform: translateY(100%);
+  font-weight: 500;
+}
+
+.menu-panel {
+  position: fixed;
+  z-index: 1;
+  top: calc(var(--edge) - 1rem);
+  left: calc(var(--edge) - 1rem);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: min(280px, 42vw);
+  height: min(365px, 45vh);
+  padding: 1rem;
+  border-radius: 0.375rem;
+  background-color: var(--base-100);
+  color: var(--base-300);
+  clip-path: inset(0% 100% 100% 0% round 0.375rem);
+  visibility: hidden;
+  will-change: transform, clip-path;
+}
+
+.menu-panel ::selection {
+  background-color: var(--base-300);
+  color: var(--base-100);
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.menu-link {
+  display: block;
+  color: var(--base-300);
+  font-size: var(--text-large);
+  font-weight: 450;
+  line-height: 1.1;
+  text-transform: none;
+}
+
+.menu-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.menu-line {
+  display: block;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+@media (max-width: 600px) {
+  .menu-panel {
+    width: calc(100vw - 2 * var(--edge) + 2rem);
+    height: min(45svh, 400px);
+  }
+
+  .menu-link {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+}
