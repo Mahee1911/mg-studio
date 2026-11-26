@@ -33,6 +33,7 @@ Install Node.js, then run these commands from the project folder:
 ```bash
 npm install
 npm run dev
+```
 
 ## Project Structure
 
