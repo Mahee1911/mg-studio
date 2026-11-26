@@ -37,6 +37,7 @@ npm run dev
 
 ## Project Structure
 
+```bash
 src/
   app/          Pages and page-level styles
   components/   Reusable interface, animation, and 3D components
@@ -46,3 +47,4 @@ src/
 public/
   images/       Portfolio imagery
   models/       GLB model for the MG emblem
+```
